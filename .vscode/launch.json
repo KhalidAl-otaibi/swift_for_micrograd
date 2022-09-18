@@ -1,0 +1,22 @@
+{
+    "configurations": [
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Debug swift_for_micrograd",
+            "program": "${workspaceFolder:swift_for_micrograd}/.build/debug/swift_for_micrograd",
+            "args": [],
+            "cwd": "${workspaceFolder:swift_for_micrograd}",
+            "preLaunchTask": "swift: Build Debug swift_for_micrograd"
+        },
+        {
+            "type": "lldb",
+            "request": "launch",
+            "name": "Release swift_for_micrograd",
+            "program": "${workspaceFolder:swift_for_micrograd}/.build/release/swift_for_micrograd",
+            "args": [],
+            "cwd": "${workspaceFolder:swift_for_micrograd}",
+            "preLaunchTask": "swift: Build Release swift_for_micrograd"
+        }
+    ]
+}
