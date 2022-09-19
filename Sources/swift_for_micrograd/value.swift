@@ -72,7 +72,7 @@ struct Value: Hashable {
     func power(other: Value) -> Value {
         var cp1 = self
         let cp2 = other
-        var result = Value(pow(self.data, other.data), [self, other], "** + \(other.data)")
+        var result = Value(pow(self.data, other.data), [cp1, cp2], "** + \(other.data)")
         result._backward = {
             cp1.grad += (cp2.data * pow(self.data, -1)) * result.grad
         }
@@ -137,7 +137,7 @@ struct Value: Hashable {
         return other + (-self)
     }
     
-    func rmul(other: inout Value) -> Value {
+    func rmul(other: Value) -> Value {
         return other * self
     }
     
