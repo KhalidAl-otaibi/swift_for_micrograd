@@ -14,7 +14,7 @@ struct Value: Hashable {
     
     // __repr__
     var description: String {
-        return "Value(\(self.data), \(self.grad), \(self.op))"
+        return "Value(\(self.data), \(self.grad))"
     }
 
     // init
