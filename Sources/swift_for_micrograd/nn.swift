@@ -17,7 +17,7 @@ class Module {
 
 
 @dynamicCallable
-class Neuron: Module  {
+final class Neuron: Module  {
 
     var weights: [Value]
     var bias:    Value
@@ -56,7 +56,7 @@ class Neuron: Module  {
 }
 
 @dynamicCallable
-class Layer: Module {
+final class Layer: Module {
 
     var neurons: [Neuron]
 
@@ -97,7 +97,7 @@ class Layer: Module {
 }
 
 @dynamicCallable
-class MLP: Module {
+final class MLP: Module {
     
     var sz:     [Int]
     var layers: [Layer]

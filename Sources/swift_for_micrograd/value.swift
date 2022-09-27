@@ -12,12 +12,10 @@ struct Value: Hashable {
     var op:        String
     var _backward: () -> ()
     
-    // __repr__
     var description: String {
         return "Value(\(self.data), \(self.grad))"
     }
 
-    // init
     init(_ data: Float, _ children: Set<Value>, _ op: String = "") {
         self.data = data
         self.grad = 0
@@ -34,7 +32,6 @@ struct Value: Hashable {
         self._backward = {}
     }
 
-    // add
     func add(other: Value) -> Value {
         var cp1 = self
         var cp2 = other
@@ -46,12 +43,10 @@ struct Value: Hashable {
         return result
     }
 
-    //overload add
     static func +(lhs: Value, rhs: Value) -> Value {
         return lhs.add(other: rhs)
     }
 
-    // mul
     func mul(other: Value) -> Value {
         var cp1 = self
         var cp2 = other
@@ -63,12 +58,10 @@ struct Value: Hashable {
         return result
     }
     
-    //overload mul
     static func *(lhs: Value, rhs: Value) -> Value {
         return lhs.mul(other: rhs)
     }
 
-    // pow
     func power(other: Value) -> Value {
         var cp1 = self
         let cp2 = other
@@ -79,12 +72,10 @@ struct Value: Hashable {
         return result
     }
 
-    //overload pow
     static func **(lhs: Value, rhs: Value) -> Value {
         return lhs.power(other: rhs)
     }
 
-    // relu
     func relu() -> Value {
         var cp1 = self
         var result = Value(max(0, cp1.data), [cp1], "relu")
@@ -94,7 +85,6 @@ struct Value: Hashable {
         return result
     }
     
-    // backward
     func backward() {
         var cp1 = self
         var topo = [Value]()
